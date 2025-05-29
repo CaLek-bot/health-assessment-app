@@ -89,29 +89,28 @@ def health_system_app():
         else:
             st.info("建议保持合理饮食、控制血压、规律运动，并定期体检。")
 
-        # BMI 分布图
-        plt.rcParams['font.sans-serif'] = ['SimHei']
-        plt.rcParams['axes.unicode_minus'] = False
+        # BMI 分布图（已暂时注释以避免部署错误）
+        # import matplotlib.pyplot as plt
+        # plt.rcParams['font.sans-serif'] = ['SimHei']
+        # plt.rcParams['axes.unicode_minus'] = False
 
-        plt.clf()  # ✅ 清空画布
+        # plt.clf()  # ✅ 清空画布
 
-        fig, ax = plt.subplots(figsize=(8, 1.8))
-        ax.set_xlim(10, 40)
-        ax.set_ylim(0, 1)
-        bmi_ranges = [(10, 18.5, 'lightblue', '偏瘦'), (18.5, 24, 'lightgreen', '正常'),
-                      (24, 28, 'orange', '超重'), (28, 40, 'red', '肥胖')]
-        for start, end, color, label in bmi_ranges:
-            ax.axvspan(start, end, color=color, alpha=0.4)
-            ax.text((start + end) / 2, 0.5, label, ha='center', va='center', fontsize=10)
-        ax.axvline(bmi, color='black', linewidth=2)
-        ax.text(bmi, 0.9, f"BMI={bmi:.1f}", rotation=90, va='bottom', ha='center', fontsize=9, color='black')
-        ax.set_yticks([])
-        ax.set_xlabel("BMI 值")
-        ax.set_title("BMI 区间分布图")
+        # fig, ax = plt.subplots(figsize=(8, 1.8))
+        # ax.set_xlim(10, 40)
+        # ax.set_ylim(0, 1)
+        # bmi_ranges = [(10, 18.5, 'lightblue', '偏瘦'), (18.5, 24, 'lightgreen', '正常'),
+        #               (24, 28, 'orange', '超重'), (28, 40, 'red', '肥胖')]
+        # for start, end, color, label in bmi_ranges:
+        #     ax.axvspan(start, end, color=color, alpha=0.4)
+        #     ax.text((start + end) / 2, 0.5, label, ha='center', va='center', fontsize=10)
+        # ax.axvline(bmi, color='black', linewidth=2)
+        # ax.text(bmi, 0.9, f"BMI={bmi:.1f}", rotation=90, va='bottom', ha='center', fontsize=9, color='black')
+        # ax.set_yticks([])
+        # ax.set_xlabel("BMI 值")
+        # ax.set_title("BMI 区间分布图")
 
-        # 加上 clear_figure=True
-        st.pyplot(fig, clear_figure=True)
-
+        # st.pyplot(fig, clear_figure=True)
 # --------- 作品二：糖尿病风险评估 ---------
 @st.cache(allow_output_mutation=True)
 def train_diabetes_model():
