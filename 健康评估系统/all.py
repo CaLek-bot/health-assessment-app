@@ -93,6 +93,8 @@ def health_system_app():
         plt.rcParams['font.sans-serif'] = ['SimHei']
         plt.rcParams['axes.unicode_minus'] = False
 
+        plt.clf()  # ✅ 清空画布
+
         fig, ax = plt.subplots(figsize=(8, 1.8))
         ax.set_xlim(10, 40)
         ax.set_ylim(0, 1)
